@@ -15,8 +15,8 @@ module.exports = app => {
     });
   });
   app.get("/:userid", (req, res) => {
-    var query = req.query;
-    User.findById(req.params.userid, function(err, user) {
+    var query = req.params.userid;
+    User.find({ "hostid": query}, function(err, user) {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -26,17 +26,16 @@ module.exports = app => {
     });
   });
 
-  app.post("/", (req, res) => {
-    var user = new User(req.body);
-    user.save();
-    res.status(201).send(user);
-  });
-
   app.post("/:userid", (req, res) => {
+    console.log(req.params.userid);
     User.findById(req.params.userid, function(err, user) {
       if (err) {
         res.status(500).send(err);
       } else {
+        var userdb = new User(req.body);
+        user.votepositive = userdb.votepositive;
+        user.votenegative = userdb.votenegative;
+        user.save();
         res.json(user);
       }
     });
