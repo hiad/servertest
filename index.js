@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const userRoute = require('./Routes/userRoutes');
+const userRoute = require('./routes/userRoutes');
 
 const db = mongoose.connect('mongodb://hectortest:hectortest2014@ds141294.mlab.com:41294/zemogatest', { useNewUrlParser: true });
 
