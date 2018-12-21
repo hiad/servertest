@@ -1,0 +1,11 @@
+{
+    "development": {
+      "username": "limon_wifilogin",
+      "password": "limon_wifilogin",
+      "database": "limon_wifi",
+      "host": "localhost",
+      "port": 3306,
+      "dialect": "mysql"
+    }
+  }
+  
