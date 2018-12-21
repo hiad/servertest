@@ -16,11 +16,11 @@ module.exports = app => {
   });
   app.get("/:userid", (req, res) => {
     var query = req.params.userid;
-    User.find({ "hostid": query}, function(err, user) {
+    User.findById(req.params.userid, function(err, user) {
       if (err) {
         res.status(500).send(err);
       } else {
-          console.log(user);
+        console.log(user);
         res.json(user);
       }
     });
