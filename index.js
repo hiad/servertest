@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 
 require("./routes/userRoutes.js")(app);
 
-const PORT = 3010;
+const PORT = process.env.PORT || 5000;
 
 var server = app.listen(PORT, () => console.log('Running on port', PORT));
 server.timeout = 6000;
